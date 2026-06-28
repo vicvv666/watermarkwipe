@@ -1,0 +1,46 @@
+     1|<!DOCTYPE html>
+     2|<html lang="{{ lang }}"">
+     3|<head>
+     4|{% set seo_page = 'home' %}
+     5|{% include 'components/seo.html' %}
+     6|    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"">
+     7|</head>
+     8|<body>
+     9|
+    10|{% include 'components/cookie.html' %}
+{% include 'components/nav.html' %}
+    11|
+    12|<main>
+    13|<section class="hero" style="padding: 3rem 0;">
+    14|  <div class="container">
+    15|    <h1 class="display-hero hero-title" style="font-size: 2rem;">{{ i18n.profile.title }}</h1>
+    16|  </div>
+    17|</section>
+    18|
+    19|<section class="section" style="padding-top: 0;">
+    20|  <div class="container">
+    21|    <div class="grid-3">
+    22|      <div class="card">
+    23|        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--sp-md);">{{ i18n.profile.account_info }}</h3>
+    24|        <p><strong>{{ i18n.profile.plan_label }}:</strong> <span>Free</span></p>
+    25|        <p><strong>{{ i18n.profile.daily_used }}:</strong> <span>0/3</span></p>
+    26|        <p><strong>{{ i18n.profile.expiry }}:</strong> <span>--</span></p>
+    27|        <a href="/pricing" class="btn btn-primary" style="margin-top: var(--sp-md);">{{ i18n.profile.upgrade }}</a>
+    28|      </div>
+    29|      <div class="card" style="grid-column: 2 / -1;">
+    30|        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--sp-md);">{{ i18n.profile.payment_history }}</h3>
+    31|        <p>{{ i18n.profile.no_payments }}</p>
+    32|      </div>
+    33|    </div>
+    34|  </div>
+    35|</section>
+    36|
+    37|</main>
+    38|
+    39|{% include 'components/footer.html' %}
+    40|
+    41|<div id="toastContainer"></div>
+    42|<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    43|</body>
+    44|</html>
+    45|

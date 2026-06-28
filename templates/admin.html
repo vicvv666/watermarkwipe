@@ -1,0 +1,46 @@
+     1|<!DOCTYPE html>
+     2|<html lang="{{ lang }}"">
+     3|<head>
+     4|{% set seo_page = 'home' %}
+     5|{% include 'components/seo.html' %}
+     6|    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"">
+     7|</head>
+     8|<body>
+     9|
+    10|{% include 'components/nav.html' %}
+    11|
+    12|<main>
+    13|<section class="hero" style="padding: 3rem 0;">
+    14|  <div class="container">
+    15|    <h1 class="display-hero hero-title" style="font-size: 2rem;">管理後台</h1>
+    16|  </div>
+    17|</section>
+    18|
+    19|<section class="section" style="padding-top: 0;">
+    20|  <div class="container">
+    21|    <div class="grid-3">
+    22|      <div class="card" style="text-align: center;">
+    23|        <div style="font-size: 2rem; font-weight: 700; color: var(--color-primary);">50K+</div>
+    24|        <p>用戶總數</p>
+    25|      </div>
+    26|      <div class="card" style="text-align: center;">
+    27|        <div style="font-size: 2rem; font-weight: 700; color: var(--color-primary);">1M+</div>
+    28|        <p>處理檔案</p>
+    29|      </div>
+    30|      <div class="card" style="text-align: center;">
+    31|        <div style="font-size: 2rem; font-weight: 700; color: var(--color-primary);">¥0</div>
+    32|        <p>今日收入</p>
+    33|      </div>
+    34|    </div>
+    35|  </div>
+    36|</section>
+    37|
+    38|</main>
+    39|
+    40|{% include 'components/footer.html' %}
+    41|
+    42|<div id="toastContainer"></div>
+    43|<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    44|</body>
+    45|</html>
+    46|

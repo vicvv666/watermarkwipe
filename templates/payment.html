@@ -1,0 +1,39 @@
+     1|<!DOCTYPE html>
+     2|<html lang="{{ lang }}"">
+     3|<head>
+     4|{% set seo_page = 'home' %}
+     5|{% include 'components/seo.html' %}
+     6|    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"">
+     7|</head>
+     8|<body>
+     9|
+    10|{% include 'components/nav.html' %}
+    11|
+    12|<main>
+    13|<section class="hero" style="padding: 3rem 0;">
+    14|  <div class="container">
+    15|    <h1 class="display-hero hero-title" style="font-size: 2rem;">支付成功</h1>
+    16|    <p class="body-large" style="text-align: center; margin-top: var(--sp-md);">訂單已確認，多謝你嘅支持！</p>
+    17|  </div>
+    18|</section>
+    19|
+    20|<section class="section" style="padding-top: 0;">
+    21|  <div class="container" style="text-align: center;">
+    22|    <div class="card" style="max-width: 520px; margin: 0 auto; padding: var(--sp-2xl);">
+    23|      <div style="font-size: 3rem;">✅</div>
+    24|      <h3 style="margin-top: var(--sp-md);">感謝你嘅支持</h3>
+    25|      <p style="margin-top: var(--sp-sm); color: #475569;">升級已成功處理，你而家可以使用全部功能。</p>
+    26|      <a href="/profile" class="btn btn-primary" style="margin-top: var(--sp-lg);">前往個人中心</a>
+    27|    </div>
+    28|  </div>
+    29|</section>
+    30|
+    31|</main>
+    32|
+    33|{% include 'components/footer.html' %}
+    34|
+    35|<div id="toastContainer"></div>
+    36|<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    37|</body>
+    38|</html>
+    39|

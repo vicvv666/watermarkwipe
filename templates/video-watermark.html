@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+{% set seo_page = 'video-watermark' %}
+{% include 'components/seo.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+
+{% include 'components/cookie.html' %}
+{% include 'components/nav.html' %}
+
+<main>
+<section class="hero">
+  <div class="container">
+    <h1 class="display-hero hero-title">{{ i18n.video_tool.title|default(i18n.nav.video_watermark) }}</h1>
+    <p class="hero-subtitle">{{ i18n.video_tool.desc }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Upload zone -->
+    <div class="upload-zone" id="uploadZone">
+      <div class="upload-zone-icon">🎬</div>
+      <div class="upload-zone-title">{{ i18n.video_tool.upload_title }}</div>
+      <div class="upload-zone-hint">{{ i18n.video_tool.upload_hint }}</div>
+      <input type="file" id="fileInput" accept="video/*" style="display:none">
+    </div>
+
+    <!-- Tool workspace -->
+    <div class="tool-workspace hidden" id="toolWorkspace">
+      <!-- Left: Video player -->
+      <div class="tool-main">
+        <div class="tool-preview">
+          <video id="videoPlayer" controls style="max-height:400px;"></video>
+        </div>
+        <div class="flex gap-sm mt-md" style="flex-wrap: wrap;">
+          <button class="btn btn-sm btn-ghost" id="playPauseBtn">▶️ 播放</button>
+          <button class="btn btn-sm btn-primary" id="captureFrameBtn">{{ i18n.video_tool.capture_frame }}</button>
+        </div>
+        <!-- Frame canvas for selection -->
+        <div class="card hidden" id="framePreview" style="margin-top: var(--sp-md);">
+          <p id="frameHint" style="font-size: 0.85rem; color: #64748b; margin-bottom: var(--sp-sm);">{{ i18n.video_tool.frame_hint|default('Drag on the frame to select watermark area') }}</p>
+          <canvas id="frameCanvas2" style="max-width: 100%; cursor: crosshair; display: block; margin: 0 auto;"></canvas>
+        </div>
+      </div>
+      <!-- Right: Controls -->
+      <div class="tool-sidebar">
+        <div class="card">
+          <p id="selectionInfo" style="font-size: 0.85rem; color: #64748b;">{{ i18n.video_tool.no_selection|default('No area selected') }}</p>
+          <p id="remainingCount" style="font-size: 0.8rem; color: #94a3b8; margin-top: 4px;"></p>
+
+          <label style="display: block; font-weight: 600; margin: var(--sp-md) 0 var(--sp-sm);">{{ i18n.video_tool.method_label|default('Method') }}</label>
+          <select id="methodSelect" style="width: 100%; padding: 8px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+            <option value="delogo">{{ i18n.video_tool.method_delogo }}</option>
+            <option value="boxblur">{{ i18n.video_tool.method_boxblur }}</option>
+            <option value="crop">{{ i18n.video_tool.method_crop }}</option>
+          </select>
+          <div id="cropArea" style="display:none; margin-top: var(--sp-sm);">
+            <p style="font-size: 0.85rem; color: #94a3b8;">{{ i18n.video_tool.crop_explain|default('Crops the video leaving out watermark area') }}</p>
+          </div>
+
+          <div class="flex gap-sm mt-lg">
+            <button class="btn btn-primary" id="processBtn" disabled>{{ i18n.video_tool.process_btn }}</button>
+            <button class="btn btn-ghost btn-sm" id="resetBtn" disabled>{{ i18n.video_tool.reset_btn|default('Reset') }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div class="result-section hidden" id="resultSection">
+      <h3 class="section-heading mb-md">{{ i18n.video_tool.result_title }}</h3>
+      <div class="result-preview">
+        <video id="resultVideo" controls></video>
+      </div>
+      <div class="result-actions">
+        <a class="btn btn-primary btn-lg" id="downloadBtn" download="watermark_removed.mp4">{{ i18n.video_tool.download }}</a>
+        <button class="btn btn-ghost" id="newVideoBtn">{{ i18n.video_tool.new_video|default('New Video') }}</button>
+      </div>
+    </div>
+
+    <!-- Loading -->
+    <div class="card hidden" id="loadingIndicator" style="text-align: center; padding: var(--sp-xl);">
+      <div class="spinner" style="margin: 0 auto var(--sp-md);"></div>
+      <p id="loadingText" style="font-size: 0.95rem; color: #475569;">{{ i18n.video_tool.processing }}</p>
+      <div class="progress" id="progressBar" style="width: 10%; margin: var(--sp-md) auto 0; max-width: 300px;"></div>
+    </div>
+
+    <!-- Hidden canvases -->
+    <canvas id="frameCanvas" style="display:none;"></canvas>
+  </div>
+</section>
+</main>
+
+<div class="mobile-cta-bar">
+    <a href="/image-watermark" class="btn btn-primary">🖼️ {{ i18n.nav.image_watermark }}</a>
+    <a href="/pricing" class="btn btn-outline">💎 {{ i18n.nav.pricing }}</a>
+</div>
+{% include 'components/footer.html' %}
+<div id="toastContainer"></div>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/video-tool.js') }}"></script>
+</body>
+</html>

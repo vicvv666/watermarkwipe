@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+{% set seo_page = 'blog' %}
+{% include 'components/seo.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+
+{% include 'components/cookie.html' %}
+{% include 'components/nav.html' %}
+
+<main>
+<section class="hero">
+  <div class="container">
+    <h1 class="display-hero hero-title" style="white-space: nowrap;">{{ i18n.blog.section_title }}</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="blog-grid">
+      {% for article in articles %}
+      <div class="blog-card">
+        <div class="blog-card-body">
+          <div class="blog-card-date">{{ article.date }}</div>
+          <h3>{{ article.title }}</h3>
+          <p>{{ article.desc }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="mobile-cta-bar">
+    <a href="/image-watermark" class="btn btn-primary">🖼️ {{ i18n.nav.image_watermark }}</a>
+    <a href="/pricing" class="btn btn-outline">💎 {{ i18n.nav.pricing }}</a>
+</div>
+
+{% include 'components/footer.html' %}
+
+<div id="toastContainer"></div>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

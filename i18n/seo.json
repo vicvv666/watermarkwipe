@@ -1,0 +1,257 @@
+{
+  "home": {
+    "zh-HK": {
+      "title": "WatermarkWipe — 專業去水印工具 | 圖片 · 影片 · PDF 在線處理",
+      "description": "免費在線去水印工具，支援圖片、影片去水印及 PDF 處理。AI 智能修復，一鍵去除浮水印。支援 JPG/PNG/MP4/MOV。微信支付寶付款。",
+      "keywords": "去水印,圖片去水印,影片去水印,PDF工具,在線去水印,浮水印移除,移除水印,watermark remover"
+    },
+    "zh-CN": {
+      "title": "WatermarkWipe — 专业去水印工具 | 图片 · 视频 · PDF 在线处理",
+      "description": "免费在线去水印工具，支持图片、视频去水印及 PDF 处理。AI 智能修复，一键去除水印。支持 JPG/PNG/MP4/MOV。微信支付宝付款。",
+      "keywords": "去水印,图片去水印,视频去水印,PDF工具,在线去水印,水印移除,去除水印,watermark remover"
+    },
+    "en": {
+      "title": "WatermarkWipe — Free Watermark Remover Online | Image · Video · PDF",
+      "description": "Free online watermark remover for images, videos, and PDF tools. AI-powered inpainting. Remove watermarks in one click. Supports JPG/PNG/MP4/MOV.",
+      "keywords": "remove watermark,watermark remover,free watermark removal,image watermark remover,video watermark removal,remove logo from video,online watermark remover"
+    }
+  },
+  "image-watermark": {
+    "zh-HK": {
+      "title": "圖片去水印 — 在線免費去除圖片浮水印 | WatermarkWipe",
+      "description": "免費在線圖片去水印工具。AI 智能修復 + 手動框選，支援 JPG/PNG/WebP/GIF。無需下載軟件，瀏覽器即可處理。",
+      "keywords": "圖片去水印,在線圖片去水印,移除圖片水印,圖片浮水印移除,photo watermark remover,AI去水印"
+    },
+    "zh-CN": {
+      "title": "图片去水印 — 在线免费去除图片水印 | WatermarkWipe",
+      "description": "免费在线图片去水印工具。AI 智能修复 + 手动框选，支持 JPG/PNG/WebP/GIF。无需下载软件，浏览器即可处理。",
+      "keywords": "图片去水印,在线图片去水印,移除图片水印,图片水印移除,photo watermark remover,AI去水印"
+    },
+    "en": {
+      "title": "Remove Watermark from Image Online Free — AI Inpaint | WatermarkWipe",
+      "description": "Remove watermark from images online free. AI-powered inpainting + manual selection. Supports JPG, PNG, WebP, GIF. No download needed.",
+      "keywords": "remove watermark from image,image watermark remover,remove watermark from photo,free image watermark removal,AI inpaint watermark"
+    }
+  },
+  "video-watermark": {
+    "zh-HK": {
+      "title": "影片去水印 — 在線免費去除影片浮水印/Logo | WatermarkWipe",
+      "description": "免費在線影片去水印工具。支援 MP4/MOV/WebM，FFmpeg 高速處理。去除 TikTok/YouTube 影片浮水印，保留原始畫質。",
+      "keywords": "影片去水印,視頻去水印,移除影片水印,去除影片logo,刪除影片浮水印,video watermark remover,remove tiktok watermark"
+    },
+    "zh-CN": {
+      "title": "视频去水印 — 在线免费去除视频水印/Logo | WatermarkWipe",
+      "description": "免费在线视频去水印工具。支持 MP4/MOV/WebM，FFmpeg 高速处理。去除 TikTok/YouTube 视频水印，保留原始画质。",
+      "keywords": "视频去水印,移除视频水印,去除视频logo,删除视频水印,video watermark remover,remove tiktok watermark"
+    },
+    "en": {
+      "title": "Remove Watermark from Video Online Free — FFmpeg Delogo | WatermarkWipe",
+      "description": "Remove watermark from video online free. FFmpeg-powered delogo processing. Supports MP4, MOV, WebM. Remove TikTok/YouTube watermarks. Preserve quality.",
+      "keywords": "remove watermark from video,video watermark remover,remove logo from video,remove tiktok watermark,free video watermark removal,ffmpeg delogo"
+    }
+  },
+  "pdf-tools": {
+    "zh-HK": {
+      "title": "PDF 工具 — 在線合併/拆分/壓縮/轉換 PDF | WatermarkWipe",
+      "description": "免費在線 PDF 工具：合併、拆分、壓縮、PDF轉圖片、圖片轉PDF。無需安裝，瀏覽器即可完成所有 PDF 操作。",
+      "keywords": "PDF工具,PDF合併,PDF拆分,PDF壓縮,PDF轉圖片,圖片轉PDF,在線PDF,free pdf tools"
+    },
+    "zh-CN": {
+      "title": "PDF 工具 — 在线合并/拆分/压缩/转换 PDF | WatermarkWipe",
+      "description": "免费在线 PDF 工具：合并、拆分、压缩、PDF转图片、图片转PDF。无需安装，浏览器即可完成所有 PDF 操作。",
+      "keywords": "PDF工具,PDF合并,PDF拆分,PDF压缩,PDF转图片,图片转PDF,在线PDF,free pdf tools"
+    },
+    "en": {
+      "title": "Free Online PDF Tools — Merge, Split, Compress, Convert | WatermarkWipe",
+      "description": "Free online PDF tools: merge, split, compress, PDF to image, image to PDF. No installation needed. All PDF operations in your browser.",
+      "keywords": "PDF tools,merge PDF,split PDF,compress PDF,PDF to image,image to PDF,free PDF tools,online PDF editor"
+    }
+  },
+  "pricing": {
+    "zh-HK": {
+      "title": "收費方案 — ¥19/月起 | WatermarkWipe",
+      "description": "WatermarkWipe 收費方案：免費版每日3次、專業版 ¥19/月、旗艦版 ¥49/月。支援微信支付、支付寶。",
+      "keywords": "去水印收費,去水印價格,WatermarkWipe方案,會員訂閱"
+    },
+    "zh-CN": {
+      "title": "收费方案 — ¥19/月起 | WatermarkWipe",
+      "description": "WatermarkWipe 收费方案：免费版每日3次、专业版 ¥19/月、旗舰版 ¥49/月。支持微信支付、支付宝。",
+      "keywords": "去水印收费,去水印价格,WatermarkWipe方案,会员订阅"
+    },
+    "en": {
+      "title": "Pricing Plans — Starting at $2.9/month | WatermarkWipe",
+      "description": "WatermarkWipe pricing: Free plan 3/day, Pro $2.9/month, Ultimate $7/month. WeChat Pay & Alipay supported.",
+      "keywords": "watermark remover pricing,watermark removal plans,subscribe watermark removal"
+    }
+  },
+  "faq": {
+    "zh-HK": {
+      "title": "常見問題 — WatermarkWipe 幫助中心",
+      "description": "解答 WatermarkWipe 去水印工具嘅常見問題，包括圖片/影片去水印方法、會員方案、支付方式等。",
+      "keywords": "常見問題,FAQ,幫助,去水印教學"
+    },
+    "zh-CN": {
+      "title": "常见问题 — WatermarkWipe 帮助中心",
+      "description": "解答 WatermarkWipe 去水印工具的常见问题，包括图片/视频去水印方法、会员方案、支付方式等。",
+      "keywords": "常见问题,FAQ,帮助,去水印教学"
+    },
+    "en": {
+      "title": "FAQ — WatermarkWipe Help Center",
+      "description": "Common questions about WatermarkWipe watermark removal tool, including image/video delogo method, membership plans, payment.",
+      "keywords": "FAQ,help,watermark remover tutorial"
+    }
+  },
+  "blog": {
+    "zh-HK": {
+      "title": "部落格 — WatermarkWipe 最新資訊",
+      "description": "WatermarkWipe 官方部落格，分享去水印技巧、圖片處理教學、AI 技術新知及產品更新。",
+      "keywords": "部落格,去水印技巧,圖片教學"
+    },
+    "zh-CN": {
+      "title": "博客 — WatermarkWipe 最新资讯",
+      "description": "WatermarkWipe 官方博客，分享去水印技巧、图片处理教学、AI 技术新知及产品更新。",
+      "keywords": "博客,去水印技巧,图片教学"
+    },
+    "en": {
+      "title": "Blog — WatermarkWipe Latest News",
+      "description": "Official WatermarkWipe blog sharing watermark removal tips, image processing tutorials, AI tech news.",
+      "keywords": "blog,watermark tips,image processing"
+    }
+  },
+  "login": {
+    "zh-HK": {
+      "title": "會員登入 — WatermarkWipe",
+      "description": "登入 WatermarkWipe 會員帳戶，使用專業去水印功能。新用戶可免費註冊。",
+      "keywords": "登入,會員,登入系統"
+    },
+    "zh-CN": {
+      "title": "会员登录 — WatermarkWipe",
+      "description": "登录 WatermarkWipe 会员账户，使用专业去水印功能。新用户可免费注册。",
+      "keywords": "登录,会员,登录系统"
+    },
+    "en": {
+      "title": "Login — WatermarkWipe",
+      "description": "Login to your WatermarkWipe member account to use professional watermark removal features.",
+      "keywords": "login,member,account"
+    }
+  },
+  "register": {
+    "zh-HK": {
+      "title": "免費註冊 — WatermarkWipe 帳戶",
+      "description": "免費註冊 WatermarkWipe 帳戶，享受每日 3 次免費去水印配額，解鎖進階功能。",
+      "keywords": "註冊,免費註冊,創建帳戶"
+    },
+    "zh-CN": {
+      "title": "免费注册 — WatermarkWipe 账户",
+      "description": "免费注册 WatermarkWipe 账户，享受每日 3 次免费去水印配额，解锁进阶功能。",
+      "keywords": "注册,免费注册,创建账户"
+    },
+    "en": {
+      "title": "Sign Up Free — WatermarkWipe",
+      "description": "Create a free WatermarkWipe account with 3 daily watermark removal credits.",
+      "keywords": "register,free signup,create account"
+    }
+  },
+  "pay": {
+    "zh-HK": {
+      "title": "付款頁面 — WatermarkWipe 方案升級",
+      "description": "選擇適合你嘅去水印方案，支援微信支付及支付寶。快速升級解鎖更多功能。",
+      "keywords": "付款,方案升級,微信支付,支付寶"
+    },
+    "zh-CN": {
+      "title": "付款页面 — WatermarkWipe 方案升级",
+      "description": "选择适合你的去水印方案，支持微信支付及支付宝。快速升级解锁更多功能。",
+      "keywords": "付款,方案升级,微信支付,支付宝"
+    },
+    "en": {
+      "title": "Payment — WatermarkWipe Upgrade Plans",
+      "description": "Choose your watermark removal plan. Support WeChat Pay & Alipay. Fast upgrade for more features.",
+      "keywords": "payment,upgrade,WeChat Pay,Alipay"
+    }
+  },
+  "payment": {
+    "zh-HK": {
+      "title": "訂單支付 — WatermarkWipe",
+      "description": "完成訂單支付，解鎖專業去水印功能。支援多種支付方式。",
+      "keywords": "訂單支付,線上支付"
+    },
+    "zh-CN": {
+      "title": "订单支付 — WatermarkWipe",
+      "description": "完成订单支付，解锁专业去水印功能。支持多种支付方式。",
+      "keywords": "订单支付,在线支付"
+    },
+    "en": {
+      "title": "Order Payment — WatermarkWipe",
+      "description": "Complete your order to unlock professional watermark removal features.",
+      "keywords": "payment,checkout"
+    }
+  },
+  "admin": {
+    "zh-HK": {
+      "title": "管理後台 — WatermarkWipe 後台管理",
+      "description": "WatermarkWipe 管理員後台，管理用戶、訂單及系統設定。",
+      "keywords": "管理後台,admin,系統管理"
+    },
+    "zh-CN": {
+      "title": "管理后台 — WatermarkWipe 后台管理",
+      "description": "WatermarkWipe 管理员后台，管理用户、订单及系统设置。",
+      "keywords": "管理后台,admin,系统管理"
+    },
+    "en": {
+      "title": "Admin Dashboard — WatermarkWipe",
+      "description": "WatermarkWipe administrator dashboard for managing users, orders and system settings.",
+      "keywords": "admin,dashboard"
+    }
+  },
+  "privacy": {
+    "zh-HK": {
+      "title": "隱私政策 — WatermarkWipe",
+      "description": "WatermarkWipe 隱私政策說明，了解我哋如何收集、使用及保護你嘅個人資料。",
+      "keywords": "隱私政策,私隱,個人資料保護"
+    },
+    "zh-CN": {
+      "title": "隐私政策 — WatermarkWipe",
+      "description": "WatermarkWipe 隐私政策说明，了解我们如何收集、使用及保护你的个人数据。",
+      "keywords": "隐私政策,隐私,个人数据保护"
+    },
+    "en": {
+      "title": "Privacy Policy — WatermarkWipe",
+      "description": "Read our privacy policy to understand how we collect, use, and protect your data.",
+      "keywords": "privacy policy,privacy"
+    }
+  },
+  "terms": {
+    "zh-HK": {
+      "title": "服務條款 — WatermarkWipe",
+      "description": "WatermarkWipe 服務條款及使用協議，請仔細閱讀後使用服務。",
+      "keywords": "服務條款,使用協議,條款"
+    },
+    "zh-CN": {
+      "title": "服务条款 — WatermarkWipe",
+      "description": "WatermarkWipe 服务条款及使用协议，请仔细阅读后使用服务。",
+      "keywords": "服务条款,使用协议,条款"
+    },
+    "en": {
+      "title": "Terms of Service — WatermarkWipe",
+      "description": "Read our terms of service and user agreement before using WatermarkWipe.",
+      "keywords": "terms of service,terms"
+    }
+  },
+  "profile": {
+    "zh-HK": {
+      "title": "會員中心 — WatermarkWipe 個人檔案",
+      "description": "管理你嘅 WatermarkWipe 帳戶資料、檢視使用記錄及會員狀態。",
+      "keywords": "會員中心,個人檔案,帳戶管理"
+    },
+    "zh-CN": {
+      "title": "会员中心 — WatermarkWipe 个人资料",
+      "description": "管理你的 WatermarkWipe 账户资料、检视使用记录及会员状态。",
+      "keywords": "会员中心,个人资料,账户管理"
+    },
+    "en": {
+      "title": "Profile — WatermarkWipe Account",
+      "description": "Manage your WatermarkWipe account, view usage history and membership status.",
+      "keywords": "profile,account"
+    }
+  }
+}

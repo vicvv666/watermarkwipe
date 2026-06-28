@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+{% set seo_page = 'pdf-tools' %}
+{% include 'components/seo.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+
+{% include 'components/cookie.html' %}
+{% include 'components/nav.html' %}
+
+<main>
+<section class="hero">
+  <div class="container">
+    <h1 class="display-hero hero-title" style="white-space:nowrap;">{{ i18n.pdf_tool.title|default(i18n.nav.pdf_tools) }}</h1>
+    <p class="hero-subtitle">{{ i18n.pdf_tool.desc }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="tool-tabs">
+      <button class="tool-tab active" data-tool="merge">{{ i18n.pdf_tool.tab_merge }}</button>
+      <button class="tool-tab" data-tool="split">{{ i18n.pdf_tool.tab_split }}</button>
+      <button class="tool-tab" data-tool="compress">{{ i18n.pdf_tool.tab_compress }}</button>
+      <button class="tool-tab" data-tool="pdf2img">{{ i18n.pdf_tool.tab_pdf2img }}</button>
+      <button class="tool-tab" data-tool="img2pdf">{{ i18n.pdf_tool.tab_img2pdf }}</button>
+    </div>
+    <div class="card" id="pdfToolArea">
+      <div class="upload-zone" id="pdfUploadZone">
+        <div class="upload-zone-icon">📄</div>
+        <div class="upload-zone-title">{{ i18n.pdf_tool.merge_upload }}</div>
+        <div class="upload-zone-hint">{% if lang == 'en' %}Click or drag files here{% else %}點擊或拖曳檔案到此{% endif %}</div>
+        <input type="file" id="pdfFileInput" accept=".pdf,image/*" style="display:none" multiple>
+      </div>
+      <div class="loading-indicator" id="pdfLoading" style="display:none;">
+        <div class="progress-bar mt-md"><div class="progress-bar-fill" style="width:50%"></div></div>
+        <p style="text-align:center;font-size:0.85rem;margin-top:var(--sp-sm);">{{ i18n.pdf_tool.processing }}</p>
+      </div>
+      <div id="pdfResult" style="display:none;">
+        <h3 class="card-title">{{ i18n.pdf_tool.result_title }}</h3>
+        <a class="btn btn-primary btn-block mt-md" id="pdfDownloadBtn">{{ i18n.pdf_tool.output_files }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="mobile-cta-bar">
+    <a href="/image-watermark" class="btn btn-primary">🖼️ {{ i18n.nav.image_watermark }}</a>
+    <a href="/pricing" class="btn btn-outline">💎 {{ i18n.nav.pricing }}</a>
+</div>
+{% include 'components/footer.html' %}
+<div id="toastContainer"></div>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pdf-tool.js') }}"></script>
+</body>
+</html>

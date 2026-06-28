@@ -1,0 +1,89 @@
+<!-- ═══════════════════════════════════════════════
+   SEO Meta Template — 所有頁面共用
+   ═══════════════════════════════════════════════ -->
+{% set seo_page = seo_page|default('home') %}
+{% set seo = seo_data[seo_page][lang] %}
+
+<title>{{ seo.title }}</title>
+<meta name="description" content="{{ seo.description }}">
+<meta name="keywords" content="{{ seo.keywords }}">
+<meta name="author" content="WatermarkWipe">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="theme-color" content="#533afd">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WatermarkWipe">
+<meta property="og:title" content="{{ seo.title }}">
+<meta property="og:description" content="{{ seo.description }}">
+<meta property="og:url" content="{{ request.url }}">
+<meta property="og:locale" content="{{ lang|replace('-','_') }}">
+<meta property="og:image" content="{{ url_for('static', filename='img/og-image.png', _external=True) }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ seo.title }}">
+<meta name="twitter:description" content="{{ seo.description }}">
+<meta name="twitter:image" content="{{ url_for('static', filename='img/og-image.png', _external=True) }}">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ request.base_url }}?lang={{ lang }}">
+
+<!-- hreflang — 多語言 SEO -->
+{% for code, info in supported_langs.items() %}
+<link rel="alternate" hreflang="{{ code }}" href="{{ request.base_url }}?lang={{ code }}">
+{% endfor %}
+<link rel="alternate" hreflang="x-default" href="{{ request.base_url }}?lang=en">
+
+<!-- Preconnect to Google Fonts for speed -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Schema.org Structured Data — WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "WatermarkWipe",
+  "url": "{{ request.host_url }}",
+  "description": "{{ seo.description }}",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "CNY",
+    "lowPrice": "0",
+    "highPrice": "49",
+    "offerCount": "3"
+  },
+  "inLanguage": [
+    {% for code in supported_langs.keys() %}
+    "{{ code }}"{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+
+{% if seo_page == 'home' %}
+<!-- BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "WatermarkWipe",
+    "item": "{{ request.host_url }}"
+  }]
+}
+</script>
+{% endif %}
+
+<!-- FAQ Schema removed — Google auto-parses HTML FAQ content -->

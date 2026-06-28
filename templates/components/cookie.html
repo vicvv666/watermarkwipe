@@ -1,0 +1,13 @@
+<!-- Cookie Consent Banner -->
+<div id="cookieBanner" class="cookie-consent hidden">
+    <div class="cookie-consent-content">
+        <div class="cookie-consent-text">
+            <strong>{{ i18n.cookie.title }}</strong>
+            <p>{{ i18n.cookie.text }} <a href="/privacy" target="_blank">{{ i18n.cookie.learn_more }}</a></p>
+        </div>
+        <div class="cookie-consent-actions">
+            <button class="btn btn-sm btn-ghost" onclick="localStorage.setItem('cookie_consent','rejected');document.getElementById('cookieBanner').classList.add('hidden')">{{ i18n.cookie.decline }}</button>
+            <button class="btn btn-sm btn-primary" onclick="localStorage.setItem('cookie_consent','accepted');document.getElementById('cookieBanner').classList.add('hidden')">{{ i18n.cookie.accept }}</button>
+        </div>
+    </div>
+</div>

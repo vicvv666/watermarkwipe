@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+{% set seo_page = 'image-watermark' %}
+{% include 'components/seo.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+
+{% include 'components/cookie.html' %}
+{% include 'components/nav.html' %}
+
+<main>
+<section class="hero">
+  <div class="container">
+    <h1 class="display-hero hero-title">{{ i18n.image_tool.title|default(i18n.nav.image_watermark) }}</h1>
+    <p class="hero-subtitle">{{ i18n.image_tool.desc }}</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+
+    <!-- Ad Slot Top -->
+    {% if adsense_client_id and adsense_slot_top %}
+    <div class="ad-container" style="margin: var(--sp-lg) 0;">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="{{ adsense_client_id }}"
+           data-ad-slot="{{ adsense_slot_top }}"
+           data-ad-format="auto"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+    {% endif %}
+
+    <!-- Upload zone (shown initially) -->
+    <div class="upload-zone" id="uploadZone">
+      <div class="upload-zone-icon">🖼️</div>
+      <div class="upload-zone-title">{{ i18n.image_tool.upload_title }}</div>
+      <div class="upload-zone-hint">{{ i18n.image_tool.upload_hint }}</div>
+      <input type="file" id="fileInput" accept="image/*" style="display:none">
+    </div>
+
+    <!-- Tool workspace (hidden until upload) -->
+    <div class="tool-workspace hidden" id="toolWorkspace">
+      <!-- Left: Canvas preview -->
+      <div class="tool-main">
+        <div class="tool-preview" id="imagePreview">
+          <canvas id="imageCanvas" style="cursor: crosshair;"></canvas>
+        </div>
+      </div>
+      <!-- Right: Controls -->
+      <div class="tool-sidebar">
+        <div class="card">
+          <p id="selectionInfo" style="font-size: 0.85rem; color: #64748b;">{{ i18n.image_tool.no_selection|default('No area selected') }}</p>
+
+          <!-- Auto Detect Button (added by JS) -->
+          <div style="margin-top: var(--sp-md);"></div>
+
+          <label style="display: block; font-weight: 600; margin: var(--sp-md) 0 var(--sp-sm);">{{ i18n.image_tool.method_label|default('Method') }}</label>
+          <select id="methodSelect" style="width: 100%; padding: 8px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+            <option value="inpaint">{{ i18n.image_tool.method_inpaint }}</option>
+            <option value="blur">{{ i18n.image_tool.method_blur }}</option>
+            <option value="ns">{{ i18n.image_tool.method_ns }}</option>
+          </select>
+
+          <div class="flex gap-sm mt-lg">
+            <button class="btn btn-primary" id="processBtn" disabled>{{ i18n.image_tool.process_btn }}</button>
+            <button class="btn btn-ghost btn-sm" id="resetBtn" disabled>{{ i18n.image_tool.reset_btn|default('Reset') }}</button>
+          </div>
+        </div>
+
+        <!-- Ad Slot Sidebar -->
+        {% if adsense_client_id and adsense_slot_sidebar %}
+        <div class="ad-container" style="min-height: 250px;">
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="{{ adsense_client_id }}"
+               data-ad-slot="{{ adsense_slot_sidebar }}"
+               data-ad-format="rectangle"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Result section -->
+    <div class="result-section hidden" id="resultSection">
+      <h3 class="section-heading mb-md">{{ i18n.image_tool.result_title }}</h3>
+      <div class="result-preview">
+        <img id="resultImage" alt="Result">
+      </div>
+      <div class="result-actions">
+        <a class="btn btn-primary btn-lg" id="downloadBtn" download="watermark_removed.png">{{ i18n.image_tool.download }}</a>
+        <button class="btn btn-ghost" id="newImageBtn">{{ i18n.image_tool.new_image|default('New Image') }}</button>
+      </div>
+
+      <!-- Premium banner shown here by JS -->
+    </div>
+
+    <!-- Loading with stage progress -->
+    <div class="card hidden" id="loadingIndicator" style="text-align: center; padding: var(--sp-xl);">
+      <div class="stage-progress">
+        <div class="spinner" style="margin: 0 auto var(--sp-md);"></div>
+        <div class="stage-label" id="stageLabel">{{ i18n.auto_detect.processing }}</div>
+        <div class="stage-sub" id="stageSub">Analyzing image...</div>
+      </div>
+    </div>
+
+    <!-- Ad Slot Result -->
+    {% if adsense_client_id and adsense_slot_result %}
+    <div class="ad-container" style="margin-top: var(--sp-lg);">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="{{ adsense_client_id }}"
+           data-ad-slot="{{ adsense_slot_result }}"
+           data-ad-format="auto"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+    {% endif %}
+  </div>
+</section>
+</main>
+
+<div class="mobile-cta-bar">
+    <a href="/image-watermark" class="btn btn-primary">🖼️ {{ i18n.nav.image_watermark }}</a>
+    <a href="/pricing" class="btn btn-outline">💎 {{ i18n.nav.pricing }}</a>
+</div>
+{% include 'components/footer.html' %}
+<div id="toastContainer"></div>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/image-tool.js') }}"></script>
+</body>
+</html>

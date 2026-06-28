@@ -1,0 +1,40 @@
+<!-- Navigation Component -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="/" class="nav-brand">
+            <span class="nav-brand-icon">💧</span> {{ i18n.site.brand }}
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/image-watermark">{{ i18n.nav.image_watermark }}</a></li>
+            <li><a href="/video-watermark">{{ i18n.nav.video_watermark }}</a></li>
+            <li><a href="/pdf-tools">{{ i18n.nav.pdf_tools }}</a></li>
+            <li><a href="/pricing">{{ i18n.nav.pricing }}</a></li>
+            <li><a href="/blog">{{ i18n.nav.blog }}</a></li>
+            <li><a href="/faq">{{ i18n.nav.faq }}</a></li>
+        </ul>
+        <div class="nav-cta-group">
+            <!-- Language Switcher -->
+            <div class="lang-switcher">
+                <button class="lang-btn" id="langToggle" title="{{ i18n.site.brand }}">
+                    {{ supported_langs[lang].flag }} {{ supported_langs[lang].name }}
+                </button>
+                <div class="lang-dropdown" id="langDropdown">
+                    {% for code, info in supported_langs.items() %}
+                    <a href="/set-lang/{{ code }}" class="lang-option {% if code == lang %}active{% endif %}">
+                        {{ info.flag }} {{ info.name }}
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% if current_user.is_authenticated %}
+                <a href="/profile" class="btn btn-ghost btn-sm">{{ current_user.username }}</a>
+                <span class="badge badge-{{ current_user.plan }}">{{ current_user.plan_info.name }}</span>
+                <a href="/logout" class="btn btn-ghost btn-sm" style="border-color: var(--color-border); color: var(--color-body);">{{ i18n.nav.logout }}</a>
+            {% else %}
+                <a href="/login" class="btn btn-ghost btn-sm">{{ i18n.nav.login }}</a>
+                <a href="/register" class="btn btn-primary btn-sm">{{ i18n.nav.register }}</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>

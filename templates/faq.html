@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+{% set seo_page = 'faq' %}
+{% include 'components/seo.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+
+{% include 'components/cookie.html' %}
+{% include 'components/nav.html' %}
+
+<main>
+<section class="hero">
+  <div class="container">
+    <h1 class="display-hero hero-title" style="white-space:nowrap;">{{ i18n.faq_page.title }}</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width: 720px; margin: 0 auto;">
+    <div class="faq-list">
+      <div class="faq-item">
+        <h2 class="faq-question">{{ i18n.faq_page.q1 }}</h2>
+        <p class="faq-answer">{{ i18n.faq_page.a1 }}</p>
+      </div>
+      <div class="faq-item">
+        <h2 class="faq-question">{{ i18n.faq_page.q2 }}</h2>
+        <p class="faq-answer">{{ i18n.faq_page.a2 }}</p>
+      </div>
+      <div class="faq-item">
+        <h2 class="faq-question">{{ i18n.faq_page.q3 }}</h2>
+        <p class="faq-answer">{{ i18n.faq_page.a3 }}</p>
+      </div>
+      <div class="faq-item">
+        <h2 class="faq-question">{{ i18n.faq_page.q4 }}</h2>
+        <p class="faq-answer">{{ i18n.faq_page.a4 }}</p>
+      </div>
+      <div class="faq-item">
+        <h2 class="faq-question">{{ i18n.faq_page.q5 }}</h2>
+        <p class="faq-answer">{{ i18n.faq_page.a5 }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- Mobile Fixed CTA -->
+<div class="mobile-cta-bar">
+    <a href="/image-watermark" class="btn btn-primary">🖼️ {{ i18n.nav.image_watermark }}</a>
+    <a href="/pricing" class="btn btn-outline">💎 {{ i18n.nav.pricing }}</a>
+</div>
+
+{% include 'components/footer.html' %}
+<div id="toastContainer"></div>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

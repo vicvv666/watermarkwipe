@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+{% set seo_page = 'pricing' %}
+{% include 'components/seo.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+
+{% include 'components/cookie.html' %}
+{% include 'components/nav.html' %}
+
+<main>
+<section class="hero">
+  <div class="container">
+    <h1 class="display-hero hero-title" style="white-space:nowrap;">{{ i18n.pricing.section_title }}</h1>
+    <p class="hero-subtitle">{% if lang == 'en' %}Choose the plan that fits you{% else %}選擇適合你嘅方案{% endif %}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid-3">
+      {% for key, plan in plans.items() %}
+      <div class="card pricing-card {% if key == 'pro' %}featured{% endif %}">
+        {% if key == 'pro' %}<span class="badge badge-pro pricing-badge">{{ i18n.pricing.popular }}</span>{% endif %}
+        <div class="pricing-name">{{ plan.name }}</div>
+        <div class="pricing-price">{% if plan.price_cny == 0 %}<span>{% if lang == 'en' %}Free{% else %}免費{% endif %}</span>{% else %}<span>¥{{ plan.price_cny }}</span><span>/{% if lang == 'en' %}mo{% else %}月{% endif %}</span>{% endif %}</div>
+        {% if plan.price_usd > 0 %}<div class="pricing-sub" style="font-size: 0.85rem; color: #64748b; margin-top: -0.5rem; margin-bottom: var(--sp-md);">≈ ${{ "%.2f"|format(plan.price_usd) }} USD</div>{% endif %}
+        <ul class="pricing-features">{% for feature in plan.features %}<li>{{ feature }}</li>{% endfor %}</ul>
+        {% if key == 'free' %}<a href="/register" class="btn btn-outline btn-block">{{ i18n.pricing.start_free }}</a>
+        {% else %}<a href="/pay/{{ key }}" class="btn btn-primary btn-block">{{ i18n.pricing.subscribe }}</a>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="mobile-cta-bar">
+    <a href="/image-watermark" class="btn btn-primary">🖼️ {{ i18n.nav.image_watermark }}</a>
+    <a href="/pricing" class="btn btn-outline">💎 {{ i18n.nav.pricing }}</a>
+</div>
+{% include 'components/footer.html' %}
+<div id="toastContainer"></div>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

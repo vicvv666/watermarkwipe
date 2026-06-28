@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+{% set seo_page = 'home' %}
+{% include 'components/seo.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+
+{% include 'components/cookie.html' %}
+{% include 'components/nav.html' %}
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="display-hero hero-title" style="white-space:nowrap;">
+                {{ i18n.hero.title_line1 }} <span class="text-gradient">{{ i18n.hero.title_line2 }}</span>
+            </h1>
+            <p class="hero-subtitle">{{ i18n.hero.subtitle }}</p>
+            <div class="hero-cta">
+                <a href="/image-watermark" class="btn btn-primary btn-xl">{{ i18n.hero.cta_start }}</a>
+                <a href="/pricing" class="btn btn-ghost btn-xl">{{ i18n.hero.cta_plans }}</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div><div class="hero-stat-value">50K+</div><div class="hero-stat-label">{{ i18n.hero.stat_users }}</div></div>
+            <div><div class="hero-stat-value">1M+</div><div class="hero-stat-label">{{ i18n.hero.stat_files }}</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- Tools -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-heading text-center mb-xl">{{ i18n.tools.section_title }}</h2>
+        <div class="grid-3">
+            <a href="/image-watermark" class="card tool-card" style="text-decoration: none;">
+                <span class="tool-card-icon">🖼️</span>
+                <h3 class="card-title">{{ i18n.tools.image_title }}</h3>
+                <p>{{ i18n.tools.image_desc }}</p>
+            </a>
+            <a href="/video-watermark" class="card tool-card" style="text-decoration: none;">
+                <span class="tool-card-icon">🎬</span>
+                <h3 class="card-title">{{ i18n.tools.video_title }}</h3>
+                <p>{{ i18n.tools.video_desc }}</p>
+            </a>
+            <a href="/pdf-tools" class="card tool-card" style="text-decoration: none;">
+                <span class="tool-card-icon">📄</span>
+                <h3 class="card-title">{{ i18n.tools.pdf_title }}</h3>
+                <p>{{ i18n.tools.pdf_desc }}</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="section section-dark">
+    <div class="container">
+        <h2 class="section-heading text-center mb-xl" style="color: #fff;">{{ i18n.features.section_title }}</h2>
+        <div class="grid-3">
+            <div style="text-align: center; padding: var(--sp-lg);">
+                <div style="font-size: 2.5rem; margin-bottom: var(--sp-md);">⚡</div>
+                <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--sp-sm); color: #fff;">{{ i18n.features.speed_title }}</h3>
+                <p style="font-size: 0.9rem; opacity: 0.85;">{{ i18n.features.speed_desc }}</p>
+            </div>
+            <div style="text-align: center; padding: var(--sp-lg);">
+                <div style="font-size: 2.5rem; margin-bottom: var(--sp-md);">🔒</div>
+                <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--sp-sm); color: #fff;">{{ i18n.features.privacy_title }}</h3>
+                <p style="font-size: 0.9rem; opacity: 0.85;">{{ i18n.features.privacy_desc }}</p>
+            </div>
+            <div style="text-align: center; padding: var(--sp-lg);">
+                <div style="font-size: 2.5rem; margin-bottom: var(--sp-md);">🎯</div>
+                <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--sp-sm); color: #fff;">{{ i18n.features.ai_title }}</h3>
+                <p style="font-size: 0.9rem; opacity: 0.85;">{{ i18n.features.ai_desc }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-heading text-center mb-lg">{{ i18n.pricing.section_title }}</h2>
+        <div class="grid-3">
+            {% for key, plan in plans.items() %}
+            <div class="card pricing-card {% if key == 'pro' %}featured{% endif %}">
+                {% if key == 'pro' %}<span class="badge badge-pro pricing-badge">{{ i18n.pricing.popular }}</span>{% endif %}
+                <div class="pricing-name">{{ plan.name }}</div>
+                <div class="pricing-price">{% if plan.price_cny == 0 %}<span>免費</span>{% else %}<span>¥{{ plan.price_cny }}</span><span>/月</span>{% endif %}</div>
+                <ul class="pricing-features">{% for feature in plan.features %}<li>{{ feature }}</li>{% endfor %}</ul>
+                <a href="/pricing" class="btn btn-outline btn-block">{{ i18n.pricing.subscribe }}</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Blog -->
+<section class="section" style="padding-top: 0;">
+    <div class="container">
+        <div class="flex justify-between items-center mb-lg">
+            <h2 class="section-heading">{{ i18n.blog.section_title }}</h2>
+            <a href="/blog" class="btn btn-ghost btn-sm">{{ i18n.blog.view_all }}</a>
+        </div>
+        <div class="blog-grid">
+            <div class="blog-card"><div class="blog-card-body"><div class="blog-card-date">2026-05-06</div><h3>{{ i18n.blog.article1_title }}</h3><p>{{ i18n.blog.article1_desc }}</p></div></div>
+            <div class="blog-card"><div class="blog-card-body"><div class="blog-card-date">2026-05-04</div><h3>{{ i18n.blog.article2_title }}</h3><p>{{ i18n.blog.article2_desc }}</p></div></div>
+            <div class="blog-card"><div class="blog-card-body"><div class="blog-card-date">2026-05-01</div><h3>{{ i18n.blog.article3_title }}</h3><p>{{ i18n.blog.article3_desc }}</p></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-dark text-center">
+    <div class="container">
+        <h2 class="display-large mb-md" style="color: #fff;">{{ i18n.cta.title }}</h2>
+        <p class="body-large mb-xl" style="opacity: 0.85;">{{ i18n.cta.subtitle }}</p>
+        <a href="/register" class="btn btn-white btn-xl">{{ i18n.cta.button }}</a>
+    </div>
+</section>
+
+<div class="mobile-cta-bar">
+    <a href="/image-watermark" class="btn btn-primary">🖼️ {{ i18n.nav.image_watermark }}</a>
+    <a href="/pricing" class="btn btn-outline">💎 {{ i18n.nav.pricing }}</a>
+</div>
+
+{% include 'components/footer.html' %}
+<div id="toastContainer"></div>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ adsense_client_id }}" crossorigin="anonymous"></script>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</body>
+</html>
