@@ -536,15 +536,15 @@ def detect_watermarks():
 
 
 @app.route('/api/process-image', methods=['POST'])
-@check_daily_limit
 def process_image():
     """
-    後端圖片去水印——頂級多區域/多遍精修
+    後端圖片去水印——支援匿名試用
     支援：
     - 多區域 regions JSON (新接口)
     - 單區域 x/y/w/h/method (舊接口兼容)
     - 自動檢測 (regions 為空時)
     - 免費版輸出加品牌水印
+    - 匿名用戶每日 2 次體驗
     """
     if 'file' not in request.files:
         return jsonify({'error': '沒有選擇檔案'}), 400
@@ -552,6 +552,25 @@ def process_image():
     file = request.files['file']
     if file.filename == '':
         return jsonify({'error': '沒有選擇檔案'}), 400
+
+    # 檢查限額（匿名用戶也有限額）
+    if current_user.is_authenticated:
+        if not current_user.can_use_tool():
+            return jsonify({
+                'error': '今日使用次數已用完',
+                'upgrade_url': url_for('pricing'),
+                'daily_limit': current_user.get_daily_limit(),
+                'daily_used': current_user.daily_count,
+            }), 429
+    else:
+        # 匿名用戶限額（Session-based）
+        today_key = f'anon_usage_{date.today().isoformat()}'
+        anon_used = session.get(today_key, 0)
+        if anon_used >= 2:
+            return jsonify({
+                'error': '每日體驗次數已用完，請登入以繼續使用',
+                'login_url': url_for('login'),
+            }), 429
 
     # 解析 regions —— 新接口
     regions_json = request.form.get('regions')
@@ -613,11 +632,19 @@ def process_image():
             os.replace(watermarked_path, output_path)
 
         # 計算剩餘
-        remaining = current_user.get_daily_limit() - current_user.daily_count
-        current_user.use_tool()
+        if current_user.is_authenticated:
+            remaining = current_user.get_daily_limit() - current_user.daily_count
+            current_user.use_tool()
+        else:
+            today_key = f'anon_usage_{date.today().isoformat()}'
+            session[today_key] = session.get(today_key, 0) + 1
+            remaining = 2 - session[today_key]
 
-        return send_file(output_path, mimetype='image/png', as_attachment=True,
+        response = send_file(output_path, mimetype='image/png', as_attachment=False,
                          download_name=f'watermark_removed.png')
+        response.headers['X-Remaining'] = str(remaining)
+        response.headers['Cache-Control'] = 'no-cache'
+        return response
     except Exception as e:
         return jsonify({'error': f'處理失敗：{str(e)}'}), 500
     finally:
